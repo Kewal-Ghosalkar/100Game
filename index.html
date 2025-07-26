@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <link rel="stylesheet" href="style.css">
+        <h1 id = "title">100 GAME</h1>
+        <h2 id = "accumilator-txt">Accumilator: 1</h2>
+        <h2 id = "computer-txt">Computer: Welcome NERD</h2>
+        <h2 id = "you-txt">You: </h2>
+        <input type = "text" id = "player-in" onkeydown="if(event.key === 'Enter') update();">
+        <button type="button" id = "submit-btn" onclick="update()">SUBMIT</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3 id = "rules1-txt">Rules: </h3>
+        <p id = "rules2-txt">
+            The player and computer take turns adding a number  between 1-10 to an accumilator.
+            The winner is the player on whose turn the accumilator reaches 100 
+        </p>
+        <script src = "index.js"></script>
+    </body>
+</html>
