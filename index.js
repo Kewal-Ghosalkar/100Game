@@ -243,7 +243,7 @@ function update() {
                     typeText(pastWinning[winCounter])
                     
                     if (winCounter > 9) {
-                        sum += Math.random() * inc
+                        sum += Math.floor(Math.random() * inc)
                         inc *= 10
                         acc.textContent = "Accumilator: " + sum
                     }
