@@ -101,7 +101,7 @@ const nonRange = [
     "Please stop",
     "Okay ur clearly too stupid to understand",
     "Im just gonna take away your button",
-    "So you are enough to figure out that pressing enter works",
+    "So you are smart enough to figure out that pressing enter works",
     "Fine then I guess I'll have to take away your text box",
     "Dont make me do this",
     "Stop",
@@ -140,15 +140,37 @@ let nonNumCount = 0
 let nonRangeCount = 0
 let winCounter = 0
 
+let typeCounter = 0
+
 let inc = 100
 
 let sum = 1
+
+function typeText(msg) {
+    comp.textContent = "Computer: "
+    let i = 0
+
+    let currCount = typeCounter
+
+    function nextChar() {
+        if (i < msg.length && currCount === typeCounter) {
+            comp.textContent += msg[i]
+            i++
+            setTimeout(nextChar, 50)
+        }
+    }
+
+    nextChar()
+}
 
 function update() {
     if (!gameOver){
         let num = Number(player.value)
         if (player.value === "")    {
-            if (nonFilledCount <= 38) comp.textContent = "Computer: " + nonFilled[nonFilledCount]
+            if (nonFilledCount <= 38)  {
+                typeCounter++
+                typeText(nonFilled[nonFilledCount]) //comp.textContent = "Computer: " + nonFilled[nonFilledCount]
+            }
             else {
               document.body.style.display = "none";  
               gameOver = true
@@ -156,21 +178,37 @@ function update() {
             nonFilledCount += 1
         }
         else if (isNaN(num))    {
-            if (nonNumCount < 13)   comp.textContent = "Computer: " + nonNum[nonNumCount]
-            else if (nonNumCount >= 13 && nonNumCount < 100)  comp.textContent =  "Computer: " + nonNum[13]
+            if (nonNumCount < 13)   {
+                //comp.textContent = "Computer: " + nonNum[nonNumCount]
+                typeCounter++
+                typeText(nonNum[nonNumCount])
+            }
+            else if (nonNumCount >= 13 && nonNumCount < 100)  {
+                //comp.textContent =  "Computer: " + nonNum[13]
+                typeCounter++
+                typeText(nonNum[13])
+            }
             else {
-                comp.textContent =  "Computer: " + nonNum[14]
+                //comp.textContent =  "Computer: " + nonNum[14]
+                typeCounter++
+                typeText(nonNum[14])
                 gameOver = true
             }
             nonNumCount += 1
         }
         else if (num < 1 || num > 10)  {
-            if (nonNumCount < 19 && nonNumCount != 12)   comp.textContent = "Computer: " + nonRange[nonNumCount]
-            else if (nonNumCount < 19 && nonNumCount === 12)   {
-                comp.textContent = "Computer: " + nonRange[12]
+            if (nonRangeCount < 19 && nonRangeCount != 12)   {
+                //comp.textContent = "Computer: " + nonRange[nonNumCount]
+                typeCounter++
+                typeText(nonRange[nonRangeCount])
+            }
+            else if (nonRangeCount < 19 && nonRangeCount === 12)   {
+                //comp.textContent = "Computer: " + nonRange[12]
+                typeCounter++
+                typeText(nonRange[12])
                 submit.style.visibility = "hidden"
             }
-            else if (nonNumCount === 19)  {
+            else if (nonNumCount === 20)  {
                 title.textContent = "WHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHY"
                 acc.textContent = "WHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHY"
                 comp.textContent = "WHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHYWHY"
@@ -184,19 +222,25 @@ function update() {
                 gameOver = true
                 while(true){}
             }
-            nonNumCount += 1
+            nonRangeCount += 1
         }
         else {
             sum += 11
-            comp.textContent = "Computer: I play " + (11-num)
+            //comp.textContent = "Computer: I play " + (11-num)
+            typeCounter++
+            typeText("I play " + (11-num))
             acc.textContent = "Accumilator: " + sum
 
             if (sum === 100) {
-                comp.textContent = "Computer: I win moron"
+                //comp.textContent = "Computer: I win moron"
+                typeCounter++
+                typeText("I win MORON")
             }
             else if (sum > 100) {
                 if (winCounter <= 19) {
-                    comp.textContent = "Computer: " + pastWinning[winCounter]
+                    //comp.textContent = "Computer: " + pastWinning[winCounter]
+                    typeCounter++
+                    typeText(pastWinning[winCounter])
                     
                     if (winCounter > 9) {
                         sum += Math.random() * inc
@@ -205,7 +249,9 @@ function update() {
                     }
                 }
                 else {
-                    comp.textContent = "Computer: AAAAAAAAAAAAAAAAAAAAAAAAA"
+                    //comp.textContent = "Computer: AAAAAAAAAAAAAAAAAAAAAAAAA"
+                    typeCounter++
+                    typeText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
                     window.location.href = "https://www.youtube.com/watch?v=WE0tu2FH4yY";
                     gameOver = true
                 }
