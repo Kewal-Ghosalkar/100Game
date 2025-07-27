@@ -13,7 +13,7 @@ A Simple game with NO WAY TO WIN
     1.  Add numbers past 100 to crash the computer
     2.  Type numbers out of the 1-10 range to break 
         the website
-    3.  Enter nothing to reach teh void
+    3.  Enter nothing to reach the void
     4.  Enter non numerical characters for 100  
         times to win the game
     Have fun!
