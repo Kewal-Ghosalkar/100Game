@@ -18,42 +18,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let title = document.getElementById("title")
 let acc = document.getElementById("accumilator-txt")
 let comp = document.getElementById("computer-txt")
@@ -200,7 +164,7 @@ function update() {
             }
             nonNumCount += 1
         }
-        else if (num <= 0 || num > 10)  {
+        else if (num < 1 || num > 10)  {
             if (nonNumCount < 19 && nonNumCount != 12)   comp.textContent = "Computer: " + nonRange[nonNumCount]
             else if (nonNumCount < 19 && nonNumCount === 12)   {
                 comp.textContent = "Computer: " + nonRange[12]
